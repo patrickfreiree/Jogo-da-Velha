@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <body>
+    <head>
+        <link rel="stylesheet" href="jogovelha/style.css">   
+    </head>
+        
+        <img src="img/jogo-velha.png" id="centro" />
 
-<head>
-    
-    <link rel="stylesheet" href="jogovelha/style.css">
-    
-</head>
+        <img src="img/tituo-jogo-velha.png" id="titulo" />
 
-  <div id="tabela">
+    <div id="tabela">
         
     <table style="width:460px; height:430px">
-            
+
         <tr>
-            <td><button style="width:60px;height:60px" type="button" class="btn btn-light" id="b1" onclick="partida(1)">'-'</button></td>
             <td><button style="width:60px;height:60px" type="button" class="btn btn-light" id="b0" onclick="partida(0)">'-'</button></td>
+            <td><button style="width:60px;height:60px" type="button" class="btn btn-light" id="b1" onclick="partida(1)">'-'</button></td>
             <td><button style="width:60px;height:60px" type="button" class="btn btn-light" id="b2" onclick="partida(2)">'-'</button></td>
         </tr>
         <tr>
@@ -32,11 +33,11 @@
     
     <script type="text/javascript"> 
 
-    var vezDoJogo = "O" ; // 0 = x
+var vezDoJogo = "O" ; // 0 = x
     var gameOver = false , vencedor = "" ;
     var X = document.getElementById("x-wins") , O = document.getElementById("o-wins")
     
-    ent0 = document.getElementById("b0")
+    var ent0 = document.getElementById("b0")
     ent1 = document.getElementById("b1")
     ent2 = document.getElementById("b2")
     ent3 = document.getElementById("b3")
@@ -45,9 +46,11 @@
     ent6 = document.getElementById("b6")
     ent7 = document.getElementById("b7")
     ent8 = document.getElementById("b8")
+    
         
     function partida(jogo)
     {  
+
         switch(jogo){   //utilizando switch substituindo os if==1
             case 0 : 
             ent0.textContent = vezDoJogo
@@ -97,22 +100,19 @@
 
         }else{vezDoJogo = "X"}
         
-        placar()
+        jogo()
     }
     
-    function placar()
+    function jogo()
     {
-        console.log(ent0.textContent)
-        console.log(ent3.textContent)
-        console.log(ent6.textContent)
-        console.log('-----')
+        
 
         if((ent0.textContent == ent3.textContent && ent0.textContent == ent6.textContent && ent0.textContent !="'-'")
             || (ent0.textContent == ent1.textContent && ent0.textContent == ent2.textContent && ent0.textContent !="'-'")
             || (ent0.textContent == ent4.textContent && ent0.textContent == ent8.textContent && ent0.textContent !="'-'"))
         { 
             vencedor = ent0.textContent
-            
+            reiniciar()
         }
         
         else if((ent4.textContent==ent3.textContent && ent4.textContent==ent5.textContent && ent4.textContent !="'-'")
@@ -121,20 +121,49 @@
                 || (ent2.textContent==ent4.textContent && ent4.textContent==ent6.textContent && ent4.textContent != "'-'"))
         {
             vencedor = ent4.textContent
-
+            reiniciar()
         }
         
         else if ((ent8.textContent==ent7.textContent && ent8.textContent==ent6.textContent && ent8.textContent != "'-'")
                 || (ent8.textContent==ent2.textContent && ent8.textContent==ent5.textContent && ent8.textContent != "'-'")) 
         {
             vencedor = ent8.textContent
+            reiniciar()
         }   
+
+        else if (vezDoJogo == 9 && vencedor == "Ninguém!") {
+                alert('Deu velha!')
+                reiniciar()
+            }
 
         if (vencedor != "")
         {
             gemeOver = true;
             alert("O Vencedor foi o: ''" +vencedor+"''")
         } 
+
+        function reiniciar(){
+            ent0.textContent = "'-'"
+            ent1.textContent = "'-'"
+            ent2.textContent = "'-'"
+            ent3.textContent = "'-'"
+            ent4.textContent = "'-'"
+            ent5.textContent = "'-'"
+            ent6.textContent = "'-'"
+            ent7.textContent = "'-'"
+            ent8.textContent = "'-'"
+
+            ent0.value = '' 
+            ent1.value = '' 
+            ent2.value = '' 
+            ent3.value = '' 
+            ent4.value = '' 
+            ent5.value = '' 
+            ent6.value = '' 
+            ent7.value = '' 
+            ent8.value = '' 
+        }
+      
     }
     
 

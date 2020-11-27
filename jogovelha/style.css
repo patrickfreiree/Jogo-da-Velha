@@ -7,27 +7,24 @@
     top:05%;
     left:40%;
     margin-top:-10px;
-    margin-left:-50px;
-}
+    
+    }
 
 
 #centro {
     width:400px;
     height:400px;
     position:fixed;
-    top:50%;
+    top:30%;
     left:40%;
-    margin-top:-50px;
-    margin-left:-50px;
 }
 
 #tabela{
     width:400px;
     height:400px;
     position:fixed;
-    top:50%;
+    top:30%;
     left:40%;
-    margin-top:-50px;
-    margin-left:-50px;   
+    
 }
   
