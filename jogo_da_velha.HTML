@@ -102,16 +102,20 @@ var vezDoJogo = "O" ; // 0 = x
         
         jogo()
     }
+
+    function marcacao() {
+            cont++
+            jogo()
+            mudasJogador()
+        }
     
     function jogo()
     {
-        
-
         if((ent0.textContent == ent3.textContent && ent0.textContent == ent6.textContent && ent0.textContent !="'-'")
             || (ent0.textContent == ent1.textContent && ent0.textContent == ent2.textContent && ent0.textContent !="'-'")
             || (ent0.textContent == ent4.textContent && ent0.textContent == ent8.textContent && ent0.textContent !="'-'"))
         { 
-            vencedor = ent0.textContent
+            vencedor = vezDoJogo
             reiniciar()
         }
         
@@ -120,14 +124,14 @@ var vezDoJogo = "O" ; // 0 = x
                 || (ent4.textContent==ent1.textContent && ent4.textContent==ent7.textContent && ent4.textContent != "'-'")
                 || (ent2.textContent==ent4.textContent && ent4.textContent==ent6.textContent && ent4.textContent != "'-'"))
         {
-            vencedor = ent4.textContent
+            vencedor = vezDoJogo
             reiniciar()
         }
         
         else if ((ent8.textContent==ent7.textContent && ent8.textContent==ent6.textContent && ent8.textContent != "'-'")
                 || (ent8.textContent==ent2.textContent && ent8.textContent==ent5.textContent && ent8.textContent != "'-'")) 
         {
-            vencedor = ent8.textContent
+            vencedor = vezDoJogo
             reiniciar()
         }   
 
@@ -135,14 +139,10 @@ var vezDoJogo = "O" ; // 0 = x
                 alert('Deu velha!')
                 reiniciar()
             }
+        
+    }
 
-        if (vencedor != "")
-        {
-            gemeOver = true;
-            alert("O Vencedor foi o: ''" +vencedor+"''")
-        } 
-
-        function reiniciar(){
+    function reiniciar(){
             ent0.textContent = "'-'"
             ent1.textContent = "'-'"
             ent2.textContent = "'-'"
@@ -164,6 +164,20 @@ var vezDoJogo = "O" ; // 0 = x
             ent8.value = '' 
         }
       
+    function placar() {
+            if (jogadaDaVez == "X") {
+                jogadaX++
+                alert('O "X" ganhou!')
+                alert('O placar é "X": ' + jogadaX + ' x "O": ' + jogadaO)
+                reiniciar()
+
+            }
+            else if (jogadaDaVez == "O") {
+                jogadaO++
+                alert('O "O" ganhou!')
+                alert('O placar é "X": ' + jogadaX + ' x "O": ' + jogadaO)
+                reiniciar()
+            }
     }
     
 
