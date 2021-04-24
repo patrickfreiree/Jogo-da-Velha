@@ -101,12 +101,14 @@ var vezDoJogo = "O" ; // 0 = x
         }else{vezDoJogo = "X"}
         
         jogo()
+        
     }
 
     function marcacao() {
             cont++
             jogo()
             mudasJogador()
+        
         }
     
     function jogo()
@@ -162,6 +164,7 @@ var vezDoJogo = "O" ; // 0 = x
             ent6.value = '' 
             ent7.value = '' 
             ent8.value = '' 
+        
         }
       
     function placar() {
@@ -177,6 +180,7 @@ var vezDoJogo = "O" ; // 0 = x
                 alert('O "O" ganhou!')
                 alert('O placar é "X": ' + jogadaX + ' x "O": ' + jogadaO)
                 reiniciar()
+                
             }
     }
     
